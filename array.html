@@ -1,0 +1,84 @@
+<html>
+
+
+<script>
+// class School{
+
+
+//     constructor(numberofstudent){
+//        this.data=new Array();
+//        this.a=6;
+//     };
+
+//  _loopOverArray(key)
+//     {
+//      return this.a*2;
+//     }
+
+// }
+
+// const classroom= new School(50);
+
+// console.log(classroom._loopOverArray())\
+class HashTable{
+
+constructor(size)
+{
+    this.data=new Array(size);
+}
+
+//loop over the string of the array
+_hash(key){
+    let hash=0;
+    for(let i=0;i<key.length;i++)
+    {
+        hash=(hash+key.charCodeAt(i)*i)% this.data.length
+    }
+    return hash;
+}
+//receive the keys and values of the array
+set(key,value)
+{
+    // store the address in memory
+    let address=this._hash(key);
+    // if the index doesnt exists in memory push new key and value;
+    if(!this.data[address])
+    {
+        this.data[address]=[];
+    }
+    else{
+
+        this.data[address].push([key,value])
+        return this.data
+
+    }
+}
+
+    // return values
+    get(key)
+    {
+        let address=this._hash(key);
+        const currentBucket=this.data[address];
+        console.log(currentBucket);
+        if(currentBucket)
+        {
+            // for()
+        }
+       return undefined
+
+    }
+
+
+
+}
+
+const myHashTable=new HashTable(2);
+myHashTable.set('FUNMI',1000);
+myHashTable.set('SEGUN',54);
+myHashTable.get('grapes');
+
+
+
+
+</script>
+</html>
